@@ -1,0 +1,41 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "automergeType": "branch",
+    "lockFileMaintenance": {
+        "enabled": true
+    },
+    "packageRules": [
+        {
+            "automerge": false,
+            "matchUpdateTypes": [
+                "major"
+            ]
+        }
+    ],
+    "pinDigests": true,
+    "platformAutomerge": true,
+    "pre-commit": {
+        "enabled": true
+    },
+    "rebaseWhen": "auto",
+    "regexManagers": [
+        {
+            "datasourceTemplate": "github-releases",
+            "fileMatch": [
+                "dependencies.yaml"
+            ],
+            "matchStrings": [
+                "(?<depName>.+?): (?<currentValue>.*?)\n"
+            ]
+        },
+        {
+            "groupName": "renovate",
+            "matchPackagePatterns": [
+                "renovate"
+            ],
+            "schedule": [
+                "* 16 * * 0"
+            ]
+        }
+    ]
+}
