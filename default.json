@@ -1,6 +1,18 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "automergeType": "branch",
+    "customManagers": [
+        {
+            "customType": "regex",
+            "datasourceTemplate": "github-releases",
+            "managerFilePatterns": [
+                "dependencies.yaml"
+            ],
+            "matchStrings": [
+                "(?<depName>.+?): (?<currentValue>.*?)\n"
+            ]
+        }
+    ],
     "lockFileMaintenance": {
         "enabled": true
     },
@@ -9,23 +21,6 @@
             "automerge": false,
             "matchUpdateTypes": [
                 "major"
-            ]
-        }
-    ],
-    "pinDigests": true,
-    "platformAutomerge": true,
-    "pre-commit": {
-        "enabled": true
-    },
-    "rebaseWhen": "auto",
-    "customManagers": [
-        {
-            "datasourceTemplate": "github-releases",
-            "fileMatch": [
-                "dependencies.yaml"
-            ],
-            "matchStrings": [
-                "(?<depName>.+?): (?<currentValue>.*?)\n"
             ]
         },
         {
@@ -37,5 +32,11 @@
                 "* 16 * * 0"
             ]
         }
-    ]
+    ],
+    "pinDigests": true,
+    "platformAutomerge": true,
+    "pre-commit": {
+        "enabled": true
+    },
+    "rebaseWhen": "auto"
 }
