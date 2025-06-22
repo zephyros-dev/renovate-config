@@ -18,7 +18,7 @@
         "enabled": true
     },
     "rebaseWhen": "auto",
-    "regexManagers": [
+    "customManagers": [
         {
             "datasourceTemplate": "github-releases",
             "fileMatch": [
