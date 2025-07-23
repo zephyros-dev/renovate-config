@@ -13,6 +13,9 @@
             ]
         }
     ],
+    "extends": [
+        "github>aquaproj/aqua-renovate-config#2.8.0"
+    ],
     "lockFileMaintenance": {
         "enabled": true
     },
